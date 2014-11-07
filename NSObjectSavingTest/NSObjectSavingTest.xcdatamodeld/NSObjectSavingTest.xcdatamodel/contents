@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A389" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="User" representedClassName="NSObjectSavingTest.User" syncable="YES">
-        <attribute name="settings" optional="YES" transient="YES" syncable="YES"/>
+        <attribute name="settings" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="user_ID" attributeType="String" syncable="YES"/>
     </entity>
     <elements>

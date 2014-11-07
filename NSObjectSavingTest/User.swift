@@ -34,7 +34,6 @@ class User: NSManagedObject {
         
         let fetchRequest = NSFetchRequest(entityName: "User")
         fetchRequest.predicate = NSPredicate(format: "user_ID LIKE %@", user_ID )
-        
         return moc!.executeFetchRequest(fetchRequest, error: nil)?.first as User
     }
     
@@ -45,7 +44,5 @@ class User: NSManagedObject {
     func printPlusSettings() {
         let sett = Settings.my_loadSaved(settings)
         if (!user_ID.isEmpty) {         println("# user_ID:        \(user_ID)") }else{ println("* NO user_ID") }
-//        if (!settings.isEqual(nil)) {   println("# settings:       \(sett.just_this )") }else{ println("* NO settings") }
-
     }
 }
