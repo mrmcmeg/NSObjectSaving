@@ -10,11 +10,11 @@ I'm trying to save a NSObject (called Settings) as attribute of the class (and E
 I'd like do something like this:
 
 # User.swift
-...
-class User: NSManagedObject {
-    @NSManaged var user_ID: String
-    @NSManaged var settings: Settings // by class Settings: NSObject, NSCoding {
-...
+    ...
+    class User: NSManagedObject {
+        @NSManaged var user_ID: String
+        @NSManaged var settings: Settings // by class Settings: NSObject, NSCoding {
+    ...
 
 # ViewController.swift
     ...
