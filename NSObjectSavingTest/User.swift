@@ -30,6 +30,14 @@ class User: NSManagedObject {
         return []
     }
     
+    class func get_fetchUser(moc: NSManagedObjectContext!, user_ID: String ) -> User {
+        
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        fetchRequest.predicate = NSPredicate(format: "user_ID LIKE %@", user_ID )
+        
+        return moc!.executeFetchRequest(fetchRequest, error: nil)?.first as User
+    }
+    
     func print() {
         if (!user_ID.isEmpty) { println("user_ID:        \(user_ID)") }else{ println("* NO user_ID") }
     }
