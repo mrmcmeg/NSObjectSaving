@@ -26,32 +26,19 @@ class Settings: NSObject, NSCoding {
     }
     
     
-//    func my_save() -> NSData {
-//        let data = NSKeyedArchiver.archivedDataWithRootObject(self)
-////        NSUserDefaults.standardUserDefaults().setObject(data, forKey: "settings")
-//
-//        return data
-//    }
-//    
-//    func my_clear() {
-//        NSUserDefaults.standardUserDefaults().removeObjectForKey("settings")
-//    }
-//    
-//    class func my_loadSaved(dataStored: NSData) -> Settings? {
-//        
-//        if dataStored.isEqual(nil) {
-//            println("no dataStored in my_loadSaved()")
-//            return nil
-//
-//        }
-////        if let data = NSUserDefaults.standardUserDefaults().objectForKey("settings") as? NSData {
-////        return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? Settings
-//        if let data = NSKeyedUnarchiver.unarchiveObjectWithData(dataStored) as? Settings {
-//            return data
-//        }
-////        }
-//        println("my_loadSaved() error...")
-//        return nil
-//    }
+    func my_save() -> NSData {
+        return NSKeyedArchiver.archivedDataWithRootObject(self)
+    }
+    
+    class func my_loadSaved(dataStored: NSData) -> Settings! {
+        
+        if let data = NSKeyedUnarchiver.unarchiveObjectWithData(dataStored) as? Settings {
+            println("Loaded settings with just_this = \(data.just_this)")
+            return data
+        }
+
+        println("my_loadSaved() error...")
+        return nil
+    }
 
 }

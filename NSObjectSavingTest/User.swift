@@ -4,7 +4,7 @@ import CoreData
 class User: NSManagedObject {
 
     @NSManaged var user_ID: String
-    @NSManaged var settings: Settings
+    @NSManaged var settings: NSData
 
     
     class func set_createUserInMOC(moc: NSManagedObjectContext,
@@ -14,7 +14,7 @@ class User: NSManagedObject {
             
             let item = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as User
             item.user_ID        = user_ID
-            item.settings       = settings
+            item.settings       = settings.my_save()
             
             return item
     }
@@ -43,8 +43,9 @@ class User: NSManagedObject {
     }
     
     func printPlusSettings() {
+        let sett = Settings.my_loadSaved(settings)
         if (!user_ID.isEmpty) {         println("# user_ID:        \(user_ID)") }else{ println("* NO user_ID") }
-        if (!settings.isEqual(nil)) {   println("# settings:       \(settings.just_this)") }else{ println("* NO settings") }
+//        if (!settings.isEqual(nil)) {   println("# settings:       \(sett.just_this )") }else{ println("* NO settings") }
 
     }
 }
